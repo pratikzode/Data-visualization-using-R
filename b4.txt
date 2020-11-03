@@ -1,0 +1,55 @@
+#Histogram:
+v <- c(9,13,21,8,36,22,12,41,31,33,19)
+hist(v,xlab = "Weight",col = "green",border = "red", xlim = c(0,40), ylim = c(0,5), breaks = 5)
+
+#Pie Chart:
+x <- c(21, 62, 10, 53)
+labels <- c("London", "New York", "Singapore", "Mumbai")
+pie(x,labels)
+
+#Bar Charts:
+H <- c(7,12,28,3,41)
+barplot(H)
+
+#Box Plot
+input <- mtcars[,c('mpg','cyl')]
+print(head(input))
+
+boxplot(mpg ~ cyl, data = mtcars, xlab = "Number of Cylinders", ylab = "Miles Per Gallon", main = "Mileage Data")
+
+boxplot(mpg ~ cyl, data = mtcars, 
+   xlab = "Number of Cylinders",
+   ylab = "Miles Per Gallon", 
+   main = "Mileage Data",
+   notch = TRUE, 
+   varwidth = TRUE, 
+   col = c("green","yellow","purple"),
+   names = c("High","Medium","Low")
+)
+
+#Line Graph
+l <- c(7,12,28,3,41)
+plot(l,type = "o", col = "red", xlab = "Month", ylab = "Rain fall", main = "Rain fall chart")
+
+#multi lines
+k <- c(7,12,28,3,41)
+p <- c(14,7,6,19,3)
+plot(k,type = "o",col = "red", xlab = "Month", ylab = "Rain fall",  main = "Rain fall chart")
+lines(p, type = "o", col = "blue")
+
+#scatter Plot
+input <- mtcars[,c('wt','mpg')]
+plot(x = input$wt,y = input$mpg,xlab = "Weight",ylab = "Milage",xlim = c(2.5,5),ylim = c(15,30),main = "Weight vs Milage")
+
+#scatter plot matrices
+pairs(~wt+mpg+disp+cyl,data = mtcars,
+   main = "Scatterplot Matrix")
+
+#Time Series Plot
+vec1<-c(10,5,6,2,1)
+myts<-ts(vec1, start=c(2010), end=c(2014), frequency=1)
+plot.ts(myts,lty='dashed')
+
+kings <- scan("http://robjhyndman.com/tsdldata/misc/kings.dat",skip=3)
+kingstimeseries <- ts(kings)
+plot.ts(kingstimeseries)
